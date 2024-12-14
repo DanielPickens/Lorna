@@ -44,6 +44,10 @@ func Example_client() {
 		panic(err)
 	}
 
+	//wait for client call t o redis backend from celery message queue brokers
+	time.Sleep(1 * time.Second)
+	
+
 	// get results from backend with timeout
 	res, err := asyncResult.Get(10 * time.Second)
 	if err != nil {
